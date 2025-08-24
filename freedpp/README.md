@@ -36,7 +36,7 @@ python main.py \
     --exp_root /home/user/freed/experiments \
     --alert_collections /home/user/freed/data/alert_collections.csv \
     --fragments /home/user/freed/data/motifs/.json \
-    --receptor /home/user/freed/data/receptors/protein.pdbqt \
+    --receptor /home/user/freed/data/receptors/protein.pdbqt \ # Specify the path to your protein file
     --vina_program /home/user/freed/utils/qvina02 \
     --scaffolds_json ../valid_smiles_validated1.json \
     --fragmentation crem \
@@ -47,11 +47,11 @@ python main.py \
     --epochs 200 \
     --commands "train,sample" \
     --reward_version soft \
-    --box_center "x1,x2,x3" \
-    --box_size "s1,s2,s3" \
+    --box_center "x1 x2 x3" \ # Specify the coordinates of the binding center
+    --box_size "s1,s2,s3" \ # Specify the box size
     --seed 150 \
     --name freedpp \
-    --objectives "qed_mol,CATS_Euclid,MACCS_Tanimoto" \
+    --objectives "qed_mol,CATS_Euclid,MACCS_Tanimoto" \ # You can change the properties in the reward to "qed_mol,CATS_Cosine,MACCS_Tanimoto", to "qed_mol,Docking_score", etc.
     --weights "1.0,2.0,2.0" \
     --num_mols 1000 
 ```
