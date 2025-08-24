@@ -35,10 +35,10 @@ docker run -it --name freedpp -v /home/user/freed:/home/jovyan --gpus device=0 f
 python main.py \
     --exp_root /home/user/freed/experiments \
     --alert_collections /home/user/freed/data/alert_collections.csv \
-    --fragments /home/user/freed/data/motifs/zinc_crem.json \
+    --fragments /home/user/freed/data/motifs/.json \
     --receptor /home/user/freed/data/receptors/protein.pdbqt \
     --vina_program /home/user/freed/utils/qvina02 \
-    --starting_smile "c1([*:1])c([*:2])ccc([*:3])c1" \
+    --scaffolds_json ../valid_smiles_validated1.json \
     --fragmentation crem \
     --num_sub_proc 12 \
     --n_conf 1 \
@@ -50,34 +50,11 @@ python main.py \
     --box_center "x1,x2,x3" \
     --box_size "s1,s2,s3" \
     --seed 150 \
-    --name freedpp
+    --name freedpp \
+    --objectives "qed_mol,CATS_Euclid,MACCS_Tanimoto" \
+    --weights "1.0,2.0,2.0" \
+    --num_mols 1000 
 ```
-### FFREED
-```bash
-python main.py \
-    --exp_root /home/user/freed/experiments \
-    --alert_collections /home/user/freed/data/alert_collections.csv \
-    --fragments /home/user/freed/data/motifs/zinc_crem.json \
-    --receptor /home/user/freed/data/receptors/protein.pdbqt \
-    --vina_program /home/user/freed/utils/qvina02 \
-    --starting_smile "c1([*:1])c([*:2])ccc([*:3])c1" \
-    --fragmentation crem \
-    --num_sub_proc 12 \
-    --n_conf 1 \
-    --exhaustiveness 1 \
-    --save_freq 50 \
-    --epochs 200 \
-    --commands "train,sample" \
-    --reward_version soft \
-    --box_center "x1,x2,x3" \
-    --box_size "s1,s2,s3" \
-    --seed 150 \
-    --name ffreed \
-    --action_mechanism sfps \
-    --per True \
-    --merger mi
-```
-We recommend to specify `timeout_dock` and `timeout_gen3d` parameters, since unconstrained usage of OpenBabel and Qvina2 may slowdown training.
 
 ## Evaluation
 ```bash
@@ -87,11 +64,11 @@ python main.py \
     --fragments /home/user/freed/data/motifs/zinc_crem.json \
     --receptor /home/user/freed/data/receptors/protein.pdbqt \
     --vina_program /home/user/freed/utils/qvina02 \
-    --starting_smile "c1([*:1])c([*:2])ccc([*:3])c1" \
+    --scaffolds_json ../valid_smiles_validated1.json \
     --fragmentation crem \
     --num_sub_proc 12 \
     --n_conf 3 \
-    --exhaustiveness 8 \
+    --exhaustiveness 16 \
     --save_freq 50 \
     --epochs 200 \
     --commands "evaluate" \
@@ -101,7 +78,10 @@ python main.py \
     --seed 150 \
     --timeout_dock 90 \
     --timeout_gen3d 30 \
-    --name freedpp
+    --name freedpp \
+    --objectives "qed_mol,CATS_Euclid,MACCS_Tanimoto" \
+    --weights "1.0,2.0,2.0" \
+    --checkpoint /home/user/freed/experiments/freedpp/ckpt/model_200.pth
 ```
 <!-- ## Citation
 ```
