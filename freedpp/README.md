@@ -23,7 +23,6 @@ docker run -it --name freedpp -v /home/user/freed:/home/jovyan --gpus device=0 f
 ```
 
 ## Training
-### FREED++
 ```bash
 python main.py \
     --exp_root /home/user/freed/experiments \
