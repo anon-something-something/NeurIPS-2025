@@ -1,10 +1,3 @@
-# FREED++
-
-This repository is the official Pytorch implementation of "FREED++: Improving RL Agents for Fragment-Based Molecule Generation by Thorough Reproduction".
-
-<img src="./assets/molecular_rl.svg" alt="molecular_rl"  width="70%"/>
-
-
 ## Installation
 ### Dependency
 The codes have been tested in the following environment:
