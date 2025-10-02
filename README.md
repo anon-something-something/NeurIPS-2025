@@ -14,11 +14,11 @@ Baseline comparisons are performed with QVina docking on the α-estrogen recepto
 
 ## Links
 
-- [ChemDiv compound libraries](https://www.chemdiv.com/catalog/complete-list-of-compounds-libraries/)  
-- [PDB entry 8AWG](https://www.rcsb.org/structure/8AWG)
-
-## Repository structure
-
+- [ChemDiv — Complete list of compound libraries](https://www.chemdiv.com/catalog/complete-list-of-compounds-libraries/)  
+- [PDB entry 8AWG (RCSB)](https://www.rcsb.org/structure/8AWG)  
+- [ChEMBL](https://www.ebi.ac.uk/chembl/)  
+- [ZINC database](https://zinc.docking.org/)  
+- [PubChem](https://pubchem.ncbi.nlm.nih.gov/)
 
 ## Citation
 Under review for NeurIPS 2025 AI4Mat
